@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Bittrex",
+    "base_url": "https://api.bittrex.com/v3",
+    "ticker_url": "/markets/%s-USD/ticker"
+  },
+  {
+    "name": "Bitstamp",
+    "base_url": "https://www.bitstamp.net/api/v2",
+    "ticker_url": "/ticker/%susd/"
+  }
+]

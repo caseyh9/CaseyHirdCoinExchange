@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<HTML>
+   <head>
+      <title>Questionnaire</title>
+   </head>
+   <body>
+      <h1>Questionnaire</h1>
+
+      <h3>1. Are there any sub-optimal choices (or short cuts taken due to limited time) in your implementation?</h3>
+      <p>The primary sub-optimal choice is that at http request is sent from the backend to each exchange every time
+         a request is sent from the frontend. There is also a little of bit of hardcoding (for terms like "buy" and "sell")
+          which in a larger, optimized project would be more systematically abstracted to a properties/localization file.
+         There is also the issue that each http request must be formatted separately, even though we have a list of exchanges.
+        This is unavoidable though, since obviously we can't choose what format each exchange api will accept. Finally, the frontend
+       could certainly benefit from more styling, particularly styling that makes it clear which exchange has the best price.</p>
+
+      <h3>2. Is any part of it over-designed? (It is fine to over-design to showcase your skills as long as you are clear about it)</h3>
+      <p>The most obviously over-designed aspect is the way this app is built to allow for new exchanges and new coins to be added easily,
+       with nothing more than a few additions to seed data and handling of http request formatting. The app is also designed to allow for
+        simple additions that would expand the app to handle other market data for the given coins.</p>
+
+      <h3>3. If you have to scale your solution to 100 users/second traffic what changes would you make, if any?</h3>
+      <p>The primary issue in scaling would be the frequency of http requests. Obviously if the app is accepting 100 requests every
+       second, it cannot itself be making 100 requests to each exchange every second. This could be improved simply by making http
+      requests to the list of exchanges at a set interval, say every 5 seconds, rather than sending them on request. The optimal
+       solution though, would be to use web-sockets to get real-time info. This would also allow the functionality of the app to
+        expand, as I'll discuss in the next section.</p>
+
+      <h3>4. What are some other enhancements you would have made, if you had more time to do this implementation</h3>
+      <p>This app could be greatly enhanced by using web-sockets to establish persistent connections to the exchanges. This would
+       lead to a lot more incoming data, but with that a lot more potential. The app could then store historical data, and go beyond
+      just diplaying recommendations to actually train different models. Also, with real-time info, the app could easily be modified
+     to alert users when an arbitrage opportunity arises between exchanges, or even to execute such trades itself.</p>
+
+   </body>
+</HTML>
